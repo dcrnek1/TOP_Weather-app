@@ -1,86 +1,250 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 
 :root {
-    --clr-background-darker: #d6d7da;
-    --clr-background-dark: #f6f6f8;
-    --clr-background-light: #ffffff;
-    --border-radius-large: 2.5rem;
-    --border-radius-medium: 1rem;
-    --flex-gap: 10px;
-    --padding-large: 35px;
-    --padding-small: 15px;
-    --margin-large: 40px;
+  --clr-background-darker: #d6d7da;
+  --clr-background-darkest: rgb(185, 185, 185);
+  --clr-background-dark: #f6f6f8;
+  --clr-background-light: #ffffff;
+  --border-radius-large: 2.5rem;
+  --border-radius-medium: 1rem;
+  --flex-gap: 10px;
+  --padding-large: 35px;
+  --padding-small: 15px;
+  --margin-large: 40px;
 }
 
 body {
-    margin: 0;
-    background-color: var(--clr-background-darker);
-    margin: var(--margin-large);
-    display: flex;
-    justify-content: center;
-    font-family: 'Roboto';
+  margin: 0;
+  background-color: var(--clr-background-darker);
+  display: flex;
+  justify-content: center;
+  font-family: "Roboto";
+}
+
+input {
+  border: none;
+  padding: 0.5rem;
+}
+
+.flex-container-horizontal-end {
+  display: flex;
+  align-items: end;
+  gap: var(--flex-gap);
+}
+
+.flex-container-horizontal-center {
+  display: flex;
+  align-items: center;
+  gap: var(--flex-gap);
+}
+
+.flex-container-vertical {
+  display: flex;
+  flex-direction: column;
+  gap: var(--flex-gap);
+}
+
+.vertically-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+.divider {
+  width: 100%;
+  border: 1px solid var(--clr-background-dark);
+}
+
+.huge-text {
+  font-size: 5rem;
+  letter-spacing: -0.2rem;
+  font-weight: 350;
+  margin-top: 0 !important;
+}
+
+.big-text {
+  font-size: 2.5rem;
+  font-weight: 300;
+}
+
+.small-text {
+  font-size: 0.8rem;
+}
+
+.sup {
+  font-size: 3rem;
+  margin-top: 0.5rem;
+}
+
+.bold {
+  font-weight: 500;
+}
+
+.thin {
+  font-weight: 300;
+}
+
+.grey {
+  color: var(--clr-background-darkest);
 }
 
 .app {
-    display: flex;
-    flex: 1;
-    flex-wrap: wrap;
-    max-width: 1200px;
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+  max-width: 1200px;
+}
+
+h1 {
+  font-weight: 500;
+  font-size: 1.3rem;
+}
+
+h2 {
+  font-weight: 400;
+  font-size: 1.1rem;
+  color: var(--clr-background-darkest);
+  margin-top: 0;
+}
+
+h3 {
+  font-size: 2.2rem;
+  font-weight: 400;
+  margin-bottom: -0.3rem;
+  margin-top: 1rem;
+}
+
+@media only screen and (max-width: 800px) {
+  /* CSS styles for small devices */
+
+  .app {
+    flex-direction: column;
+  }
+
+  .main-section,
+  .detail-section {
+    border-radius: 0;
+  }
+}
+
+@media only screen and (min-width: 800px) {
+  /* CSS styles for small devices */
+
+  body {
+    margin: var(--margin-large);
+  }
+
+  .main-section {
+    border-radius: var(--border-radius-large) 0 0 var(--border-radius-large);
+  }
+
+  .detail-section {
+    border-radius: 0 var(--border-radius-large) var(--border-radius-large) 0;
+  }
 }
 
 .main-section {
-    background-color: var(--clr-background-light);
-    padding: var(--padding-large);
-    display: flex;
-    flex-direction: column;
-    gap: var(--padding-small);
-    border-radius: var(--border-radius-large) 0 0 var(--border-radius-large);
+  background-color: var(--clr-background-light);
+  padding: var(--padding-large);
+  display: flex;
+  flex-direction: column;
+  gap: var(--padding-large);
 }
 
 .current-weather {
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    justify-content: space-between;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--padding-small);
+}
+
+.current-weather_temperature {
+  display: flex;
+  align-items: start;
+}
+
+.current-weather_card {
+  background-color: var(--clr-background-dark);
+  border-radius: var(--border-radius-medium);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--flex-gap);
+  padding-right: var(--padding-large);
+}
+
+.current-weather_description,
+.current-weather_percipitation {
+  display: flex;
+  align-items: center;
+  gap: var(--flex-gap);
 }
 
 .detail-section {
-    background-color: var(--clr-background-dark);
-    flex: 1;
-    padding: var(--padding-large);
-    border-radius: 0 var(--border-radius-large) var(--border-radius-large) 0 ;
-    display: flex;
-    flex-direction: column;
-    gap: var(--padding-large)
+  background-color: var(--clr-background-dark);
+  flex: 1;
+  padding: var(--padding-large);
+  display: flex;
+  flex-direction: column;
+  gap: var(--padding-large);
 }
 
 .detail-section_header {
-    display: flex;
-    justify-content: flex-end;
-    gap: var(--flex-gap)
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--flex-gap);
+}
+
+.detail-section_weather-by-day_cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: var(--flex-gap);
+}
+
+.day-card {
+  background-color: var(--clr-background-light);
+  padding: var(--padding-small);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: var(--border-radius-medium);
 }
 
 .temp-btn {
-    background-color: var(--clr-background-light);
-    margin: 0;
-    width: 15px;
-    height: 15px;
-    padding: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 100%;
-    user-select: none;
-    font-weight: 500;
-    padding-right: 11px;
+  background-color: var(--clr-background-light);
+  margin: 0;
+  width: 15px;
+  height: 15px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  user-select: none;
+  font-weight: 500;
+  padding-right: 11px;
 }
 
 .temp-btn:hover {
-    background-color: var(--clr-background-darker);
+  background-color: var(--clr-background-darker);
 }
 
 .temp-btn.active {
-    background-color: black;
-    color:white;
+  background-color: black;
+  color: white;
+}
+
+.highlight-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: calc(var(--flex-gap) * 2);
+}
+
+.highlight-card {
+  background-color: var(--clr-background-light);
+  padding: var(--padding-small);
+  border-radius: var(--border-radius-medium);
+  display: flex;
+  flex-direction: column;
 }

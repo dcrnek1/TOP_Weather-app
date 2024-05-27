@@ -1,22 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
+
 <body>
     <div class="app">
         <div class="main-section">
-            <div class="search">Search</div>
+            <div class="search">
+                <div class="flex-container-horizontal-center">
+                    <img src="./assets/images/search.png" width="20">
+                    <input type="text" placeholder="Search for places ...">
+                    <img src="./assets/images/gps.png" width="20" alt="">
+                </div>
+            </div>
             <div class="current-weather">
-                <div class="current-weather_icon">Current weather icon</div>
-                <div class="current-weather_temperature">Current temperature</div>
-                <div class="current-weather_day_time">Current day</div>
+                <div class="city-card">
+                    <span class="big-text">Zagreb</span>
+                </div>
+                <div class="current-weather_card">
+                    <div class="current-weather_card_image"><img src="./assets/images/weather/day/113.png" alt=""></div>
+                    <div class="current-weather_temperature huge-text"><span>12</span><sup class="sup">&#176;C</sup>
+                    </div>
+                </div>
+                <div class="current-weather_day_time large bold">Monday, <span class="grey thin">16:00</span></div>
                 <div class="divider"></div>
-                <div class="current-weather_description">Desc</div>
-                <div class="current-weather_pprecipitation">Rain - 30%</div>
+                <div class="current-weather_description"><img src="./assets/images/weather/day/116.png" alt=""
+                        width="25"><span class="small-text">Mostly Cloudy</span></div>
+                <div class="current-weather_percipitation"><img src="./assets/images/weather/day/263.png" alt=""
+                        width="25"><span class="small-text">Rain - 30%</span></div>
             </div>
         </div>
         <div class="detail-section">
@@ -24,14 +40,106 @@
                 <div class="temp-btn active temp_c">°C</div>
                 <div class="temp-btn temp_f">°F</div>
             </div>
+            <div>
+                <h1>Future Forecast</h1>
+            </div>
             <div class="detail-section_weather-by-day_cards">
-                <div class="weather-by-day_card">Mon</div>
-                <div class="weather-by-day_card">Tue</div>
-                <div class="weather-by-day_card">Wed</div>
-                <div class="weather-by-day_card">Thu</div>
-                <div class="weather-by-day_card">Fri</div>
-                <div class="weather-by-day_card">Sat</div>
-                <div class="weather-by-day_card">Sun</div>
+                <div class="day-card">
+                    <div class="day-card_day bold">Mon</div>
+                    <div class="day-card_icon"><img src="./assets/images/weather/day/116.png" alt="" width="55"></div>
+                    <div class="day-card_temp"><span>15&#176; </span> <span class="grey">-3&#176;</span>
+                    </div>
+                </div>
+                <div class="day-card">
+                    <div class="day-card_day bold">Tue</div>
+                    <div class="day-card_icon"><img src="./assets/images/weather/day/116.png" alt="" width="55"></div>
+                    <div class="day-card_temp"><span>21&#176; </span> <span class="grey">-3&#176;</span>
+                    </div>
+                </div>
+                <div class="day-card">
+                    <div class="day-card_day bold">Wed</div>
+                    <div class="day-card_icon"><img src="./assets/images/weather/day/116.png" alt="" width="55"></div>
+                    <div class="day-card_temp"><span>12&#176; </span> <span class="grey">-3&#176;</span>
+                    </div>
+                </div>
+                <div class="day-card">
+                    <div class="day-card_day bold">Thu</div>
+                    <div class="day-card_icon"><img src="./assets/images/weather/day/116.png" alt="" width="55"></div>
+                    <div class="day-card_temp"><span>14&#176; </span> <span class="grey">-3&#176;</span>
+                    </div>
+                </div>
+                <div class="day-card">
+                    <div class="day-card_day bold">Fri</div>
+                    <div class="day-card_icon"><img src="./assets/images/weather/day/116.png" alt="" width="55"></div>
+                    <div class="day-card_temp"><span>20&#176; </span> <span class="grey">-3&#176;</span>
+                    </div>
+                </div>
+                <div class="day-card">
+                    <div class="day-card_day bold">Sat</div>
+                    <div class="day-card_icon"><img src="./assets/images/weather/day/116.png" alt="" width="55"></div>
+                    <div class="day-card_temp"><span>10&#176; </span> <span class="grey">-3&#176;</span>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h1>Today's Highlights</h1>
+            </div>
+            <div class="highlight-cards">
+                <div class="highlight-card uv-index">
+                    <h2>UV Index</h2>
+                    <div class="vertically-center">
+                        <center>
+                            <h3><span id="uv-index">5</span> <span class="grey thin">/11</span></h3>
+                        </center>
+                    </div>
+                </div>
+                <div class="highlight-card wind">
+                    <h2>Wind Status</h2>
+                    <div class="vertically-center">
+                        <div class="flex-container-vertical">
+                            <div class="flex-container-horizontal-end">
+                                <h3 id="wind">6.8</h3>
+                                <div>km/h</div>
+                            </div>
+                            <div class="wind-dir">
+                                <span id="wind-dir">WSW</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="highlight-card sunrise">
+                    <h2>Sunrise & Sunset</h2>
+                    <div class="vertically-center">
+                        <div class="flex-container-horizontal-center">
+                            <div><img src="./assets/images/weather/day/113.png" style="margin: -15px" width="60" alt="">
+                            </div>
+                            <div class="bold" id="sunrise">6:35 AM</div>
+                        </div>
+                        <div class="flex-container-horizontal-center">
+                            <div><img src="./assets/images/weather/sunset.png" style="margin: -15px; opacity: 0.6;"
+                                    width="60" alt="">
+                            </div>
+                            <div class="bold" id="sunset">8:42 PM</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="highlight-card humidity">
+                    <h2>Humidity</h2>
+                    <div class="vertically-center">
+                        <center>
+                            <h3><span id="humidity">63</span> <span class="grey thin">%</span></h3>
+                        </center>
+                    </div>
+                </div>
+                <div class="highlight-card visibility">
+                    <h2>Visibility</h2>
+                    <div class="flex-container-vertical">
+                        <div class="flex-container-horizontal-end">
+                            <h3 id="visibility">10</h3>
+                            <div id="visibility-unit">km</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -39,4 +147,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>
