@@ -2,7 +2,7 @@ import * as listeners from "./listeners.js";
 import * as fetch from "./fetch.js";
 import { updateUi } from "./ui.js";
 
-fetch.fetchWeather("London");
+fetch.fetchByLocation();
 
 function changeUnit(unit) {
   updateUi(fetch.weatherDataStore, unit);
