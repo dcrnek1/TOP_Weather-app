@@ -31,7 +31,10 @@ async function fetchWeather(q) {
 function fetchByLocation() {
   ui.loader.style.display = "flex";
   try {
-    navigator.geolocation.getCurrentPosition(locationSucces, locationError);
+    navigator.geolocation.getCurrentPosition(locationSucces, locationError, {
+      enableHighAccuracy: true,
+      maximumAge: 10000,
+    });
 
     function locationSucces(location) {
       const lat = location.coords.latitude;
