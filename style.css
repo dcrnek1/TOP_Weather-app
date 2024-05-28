@@ -13,6 +13,24 @@
   --margin-large: 40px;
 }
 
+@media only screen and (max-width: 800px) {
+  /* CSS styles for small devices */
+
+  :root {
+    --padding-large: 20px;
+  --padding-small: 10px;
+  }
+}
+
+@media only screen and (min-width: 800px) {
+  /* CSS styles for small devices */
+
+  :root {
+    --padding-large: 35px;
+    --padding-small: 15px;
+  }
+}
+
 body {
   margin: 0;
   background-color: var(--clr-background-darker);
@@ -21,9 +39,23 @@ body {
   font-family: "Roboto";
 }
 
+#loader {
+  position: absolute;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height:  100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+
 input {
   border: none;
   padding: 0.5rem;
+  flex: 1;
 }
 
 .flex-container-horizontal-end {
@@ -152,6 +184,10 @@ h3 {
   gap: var(--padding-large);
 }
 
+.search {
+  width: 100%;
+}
+
 .current-weather {
   display: flex;
   flex: 1;
@@ -172,6 +208,14 @@ h3 {
   align-items: center;
   padding: var(--flex-gap);
   padding-right: var(--padding-large);
+}
+
+@media only screen and (max-width: 800px) {
+  /* CSS styles for small devices */
+
+  .current-weather_card {
+    background-color: var(--clr-background-light);
+  }
 }
 
 .current-weather_description,

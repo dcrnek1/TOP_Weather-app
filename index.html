@@ -9,36 +9,38 @@
 </head>
 
 <body>
+    <div id="loader">
+        <img src="./assets/images/loader.gif" alt="">
+    </div>
     <div class="app">
         <div class="main-section">
             <div class="search">
                 <div class="flex-container-horizontal-center">
                     <img src="./assets/images/search.png" width="20">
                     <input type="text" placeholder="Search for places ...">
-                    <img src="./assets/images/gps.png" width="20" alt="">
+                    <img id="gps_locate" src="./assets/images/gps.png" width="20" alt="">
                 </div>
             </div>
             <div class="current-weather">
                 <div class="city-card">
-                    <span class="big-text">Zagreb</span>
+                    <span class="big-text" id="cityName"></span>
                 </div>
                 <div class="current-weather_card">
-                    <div class="current-weather_card_image"><img src="./assets/images/weather/day/113.png" alt=""></div>
-                    <div class="current-weather_temperature huge-text"><span>12</span><sup class="sup">&#176;C</sup>
+                    <div class="current-weather_card_image"><img id="currentImg" src="" alt=""></div>
+                    <div class="current-weather_temperature huge-text"><span id="temp"></span><sup class="sup">&#176;<span id="temp_unit"></span></sup>
                     </div>
                 </div>
-                <div class="current-weather_day_time large bold">Monday, <span class="grey thin">16:00</span></div>
+                <div class="current-weather_day_time large bold"><span id="current_day"></span>, <span class="grey thin" id="current_time"></span></div>
                 <div class="divider"></div>
-                <div class="current-weather_description"><img src="./assets/images/weather/day/116.png" alt=""
-                        width="25"><span class="small-text">Mostly Cloudy</span></div>
-                <div class="current-weather_percipitation"><img src="./assets/images/weather/day/263.png" alt=""
-                        width="25"><span class="small-text">Rain - 30%</span></div>
+                <div class="current-weather_description"><span class="small-text bold">Condition:</span> <span class="small-text" id="condition"></span></div>
+                <div class="current-weather_description"><span class="small-text bold">Humidity:</span> <span class="small-text" id="humidity"></span></div>
+                <div class="current-weather_description"><span class="small-text bold">Fells like:</span> <span class="small-text" id="feels_like"></span></div>
             </div>
         </div>
         <div class="detail-section">
             <div class="detail-section_header">
-                <div class="temp-btn active temp_c">°C</div>
-                <div class="temp-btn temp_f">°F</div>
+                <div class="temp-btn active temp_c" id="change_c">°C</div>
+                <div class="temp-btn temp_f" id="change_f">°F</div>
             </div>
             <div>
                 <h1>Future Forecast</h1>
@@ -145,7 +147,7 @@
     </div>
 
 
-    <script src="script.js"></script>
+    <script src="script.js" type="module"></script>
 </body>
 
 </html>
