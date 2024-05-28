@@ -43,8 +43,9 @@ function fetchByLocation() {
   };
 
   navigator.geolocation.getCurrentPosition(locationSucces, locationError, {
-    enableHighAccuracy: true,
+    enableHighAccuracy: false,
     maximumAge: 10000,
+    timeout: 5000,
   });
   ui.loader.style.display = "none";
 }
