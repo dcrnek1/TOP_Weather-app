@@ -30,17 +30,22 @@ async function fetchWeather(q) {
 
 function fetchByLocation() {
   ui.loader.style.display = "flex";
-  navigator.geolocation.getCurrentPosition(locationSucces, locationError);
+  try {
+    navigator.geolocation.getCurrentPosition(locationSucces, locationError);
 
-  function locationSucces(location) {
-    const lat = location.coords.latitude;
-    const lon = location.coords.longitude;
+    function locationSucces(location) {
+      const lat = location.coords.latitude;
+      const lon = location.coords.longitude;
 
-    fetchWeather(`${lat},${lon}`);
-  }
-  ui.loader.style.display = "none";
-  function locationError() {
-    alert("No permission for location. Search for location by input!");
+      fetchWeather(`${lat},${lon}`);
+    }
+    ui.loader.style.display = "none";
+    function locationError() {
+      alert("No permission for location. Search for location by input!");
+    }
+  } catch (error) {
+    alert("error getting location data");
+    ui.loader.style.display = "none";
   }
 }
 
