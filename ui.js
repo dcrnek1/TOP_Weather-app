@@ -15,7 +15,7 @@ const ui = {
     feels_like: document.querySelector("#feels_like"),
 }
 
-function updateUi (weatherData, unit = 'c') {
+function updateUi (weatherData, unit = ui.changeC.classList.contains('active') ? 'c' : 'f') {
     const location = weatherData.location;
     const forecast = weatherData.forecast;
     const current = weatherData.current;

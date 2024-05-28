@@ -1,5 +1,5 @@
 import * as fetch from "./fetch.js";
-import { ui, updateUi } from "./ui.js";
+import { ui, updateUi} from "./ui.js";
 
 ui.gpsLocate.addEventListener('click', fetch.fetchByLocation)
 
