@@ -9,7 +9,7 @@ async function fetchWeather(q) {
   ui.loader.style.display = "flex";
   try {
     const response = await fetch(
-      `http://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${q}&days=7&aqi=yes&alerts=yes`,
+      `https://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${q}&days=7&aqi=yes&alerts=yes`,
       { mode: "cors" }
     );
 
