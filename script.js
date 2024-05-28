@@ -5,7 +5,7 @@ import { updateUi } from "./ui.js";
 fetch.fetchByLocation();
 
 function changeUnit(unit) {
-  updateUi(fetch.weatherDataStore, unit)
+  updateUi(fetch.weatherDataStore, unit);
 }
 
 window.changeUnit = changeUnit;

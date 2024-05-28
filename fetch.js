@@ -30,41 +30,23 @@ async function fetchWeather(q) {
 
 function fetchByLocation() {
   ui.loader.style.display = "flex";
-  try {
-    navigator.geolocation.getCurrentPosition(locationSucces, locationError, {
-      enableHighAccuracy: true,
-      maximumAge: 10000,
-    });
+  const locationSucces = (location) => {
+    const lat = location.coords.latitude;
+    const lon = location.coords.longitude;
 
-    function locationSucces(location) {
-      const lat = location.coords.latitude;
-      const lon = location.coords.longitude;
+    fetchWeather(`${lat},${lon}`);
+  };
 
-      fetchWeather(`${lat},${lon}`);
-    }
-    ui.loader.style.display = "none";
-    function locationError() {
-      let errorMessage;
-      switch (error.code) {
-        case error.PERMISSION_DENIED:
-          errorMessage = "User denied the request for Geolocation.";
-          break;
-        case error.POSITION_UNAVAILABLE:
-          errorMessage = "Location information is unavailable.";
-          break;
-        case error.TIMEOUT:
-          errorMessage = "The request to get user location timed out.";
-          break;
-        case error.UNKNOWN_ERROR:
-          errorMessage = "An unknown error occurred.";
-          break;
-      }
-      alert(errorMessage);
-    }
-  } catch (error) {
-    alert("error getting location data");
-    ui.loader.style.display = "none";
-  }
+  const locationError = (errorObj) => {
+    alert(errorObj.message);
+    alert("No permission for location. Search for location by input!");
+  };
+
+  navigator.geolocation.getCurrentPosition(locationSucces, locationError, {
+    enableHighAccuracy: true,
+    maximumAge: 10000,
+  });
+  ui.loader.style.display = "none";
 }
 
 export { fetchWeather, weatherDataStore, fetchByLocation };
