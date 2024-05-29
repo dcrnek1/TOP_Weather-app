@@ -7,6 +7,7 @@
   --clr-background-light: #ffffff;
   --border-radius-large: 2.5rem;
   --border-radius-medium: 1rem;
+  --border-radius-small: 0.7rem;
   --flex-gap: 10px;
   --padding-large: 35px;
   --padding-small: 15px;
@@ -55,8 +56,10 @@ body {
 
 input {
   border: none;
-  padding: 0.5rem;
+  padding: 0.6rem 2rem 0.6rem 2rem;
   flex: 1;
+  background-color: var(--clr-background-dark);
+  border-radius: var(--border-radius-small);
 }
 
 .flex-container-horizontal-end {
