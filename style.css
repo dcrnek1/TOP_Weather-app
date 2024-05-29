@@ -125,13 +125,12 @@ input {
 .app {
   display: flex;
   flex: 1;
-  flex-wrap: wrap;
-  max-width: 1200px;
 }
 
 h1 {
   font-weight: 500;
   font-size: 1.3rem;
+  margin-bottom: -10px;
 }
 
 h2 {
@@ -153,16 +152,36 @@ h3 {
 
   .app {
     flex-direction: column;
+    flex-wrap: wrap;
   }
 
   .main-section,
   .detail-section {
     border-radius: 0;
   }
+
+  .detail-section {
+    max-width: 100vw;
+  }
+
+  .overflowx {
+    max-width: calc(100vw - var(--padding-large)*2 - var(--padding-large));
+  }
 }
 
 @media only screen and (min-width: 800px) {
+  .app {
+    flex-wrap: nowrap;
+    max-width: 800px;
+  }
+}
+
+@media only screen and (min-width: 1250px) {
   /* CSS styles for small devices */
+  .app {
+    flex-wrap: nowrap;
+    max-width: 1250px;
+  }
 
   body {
     margin: var(--margin-large);
@@ -233,6 +252,7 @@ h3 {
   display: flex;
   flex-direction: column;
   gap: var(--padding-large);
+  overflow-x: auto;
 }
 
 .detail-section_header {
@@ -247,13 +267,39 @@ h3 {
   gap: var(--flex-gap);
 }
 
-.day-card {
+.overflowx {
+  width: 100%;
+  overflow-x: auto;
+  white-space: nowrap;
+  padding-bottom: var(--padding-small);
+  -ms-overflow-style: none;
+}
+.overflowx::-webkit-scrollbar {
+  display: none;
+}
+
+.detail-section_weather-by-hour_cards {
+  display: flex;
+  width: 100%;
+  gap: var(--flex-gap);
+  flex-wrap: nowrap;
+  scroll-snap-type: x mandatory;
+  margin-right: 0;
+  padding-right: 0;
+}
+
+.day-card, .hour-card {
   background-color: var(--clr-background-light);
   padding: var(--padding-small);
   display: flex;
   flex-direction: column;
   align-items: center;
   border-radius: var(--border-radius-medium);
+}
+
+.hour-card {
+  min-width: 75px;
+  max-width: 200px;
 }
 
 .temp-btn {

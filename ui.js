@@ -23,6 +23,7 @@ const ui = {
   humidityCard: document.querySelector("#humidity_card"),
   visibility: document.querySelector("#visibility"),
   visibilityUnit: document.querySelector("#visibility-unit"),
+  forecastByHour: document.querySelector('#forecastByHour'),
 };
 
 function updateUi(
@@ -45,7 +46,7 @@ function updateUi(
   ui.currentDay.textContent = getDayName(current.last_updated);
   ui.currentTime.textContent = `${new Date(
     current.last_updated
-  ).getHours()}:${new Date(current.last_updated).getMinutes()}`;
+  ).getHours()}:${String(new Date(current.last_updated).getMinutes()).padStart(2, '0')}`;
   ui.condition.textContent = current.condition.text;
   ui.humidity.textContent = `${current.humidity}%`;
   ui.uvIndex.textContent = current.uv;
@@ -54,15 +55,35 @@ function updateUi(
   ui.sunset.textContent = forecast[0].astro.sunset;
   ui.humidityCard.textContent = current.humidity;
 
+  //By hour
+  let hourCards = '';
+  let currentTime = new Date();
+
+  forecast[0].hour.forEach((forecast) => {
+    let time = new Date(forecast.time);
+    if (time >= currentTime) {
+        const temp = unit === "c" ? parseInt(forecast.temp_c) + "°" : parseInt(forecast.temp_f) + "°";
+        const rain = forecast.chance_of_rain + "%";
+        hourCards += `<div class="hour-card">
+                        <div class="day-card_day">${time.getHours()}:${String(time.getMinutes()).padStart(2, '0')}</div>
+                        <div class="day-card_icon"><img src="./assets/images/weather${getImagePath(
+                            forecast.condition.icon
+                          )}" alt="" width="55"></div>
+                        <div class="day-card_temp"><span>${temp} </span><img src="./assets/images/raindrop.png" width="12" alt=""><span> ${rain}</span>
+                        </div>
+                    </div>`
+    }
+  })
+  ui.forecastByHour.innerHTML = hourCards;
+
   //Forecast
-  console.log(forecast.length);
-  let cards = "";
+  let forecastCards = "";
   forecast.forEach((day) => {
     const min =
       unit === "c" ? parseInt(day.day.mintemp_c) : parseInt(day.day.mintemp_f);
     const max =
       unit === "c" ? parseInt(day.day.maxtemp_c) : parseInt(day.day.maxtemp_f);
-    cards += `<div class="day-card">
+      forecastCards += `<div class="day-card">
                 <div class="day-card_day bold">${getDayName(day.date).substring(
                   0,
                   3
@@ -74,7 +95,7 @@ function updateUi(
                 </div>
             </div>`;
   });
-  ui.forecastCards.innerHTML = cards;
+  ui.forecastCards.innerHTML = forecastCards;
 
   if (unit === "c") {
     //Main screen
