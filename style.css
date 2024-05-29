@@ -165,7 +165,7 @@ h3 {
   }
 
   .overflowx {
-    max-width: calc(100vw - var(--padding-large)*2 - var(--padding-large));
+    max-width: calc(100vw - var(--padding-large)*1);
   }
 }
 
@@ -248,11 +248,15 @@ h3 {
 .detail-section {
   background-color: var(--clr-background-dark);
   flex: 1;
-  padding: var(--padding-large);
+  padding: var(--padding-large) 0 var(--padding-large) var(--padding-large);
   display: flex;
   flex-direction: column;
   gap: var(--padding-large);
   overflow-x: auto;
+}
+
+.pr {
+  padding-right: var(--padding-large);
 }
 
 .detail-section_header {
@@ -273,6 +277,7 @@ h3 {
   white-space: nowrap;
   padding-bottom: var(--padding-small);
   -ms-overflow-style: none;
+  max-width: calc(100vw - var(--padding-large)*1);
 }
 .overflowx::-webkit-scrollbar {
   display: none;
@@ -298,7 +303,7 @@ h3 {
 }
 
 .hour-card {
-  min-width: 75px;
+  min-width: 95px;
   max-width: 200px;
 }
 
